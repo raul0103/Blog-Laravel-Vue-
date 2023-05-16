@@ -38,8 +38,13 @@ class Article extends Model
         return $this->published_at->diffForHumans();
     }
 
-    public function scopeLastLimit($query, $limit)
+    public function scopeLastLimit($query, $elem_count)
     {
-        return $query->with('stats', 'tags')->orderBy('created_at', 'desc')->limit($limit)->get();
+        return $query->with('stats', 'tags')->orderBy('created_at', 'desc')->limit($elem_count)->get();
+    }
+
+    public function scopeAllPaginate($query, $elem_count)
+    {
+        return $query->with('stats', 'tags')->orderBy('created_at', 'desc')->paginate($elem_count);
     }
 }
