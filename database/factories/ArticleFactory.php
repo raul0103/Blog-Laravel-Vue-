@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,8 @@ class ArticleFactory extends Factory
             'slug' => $slug,
             'image' => $image,
             'body' => $body,
-            'created_at' => $created_at
+            'created_at' => $created_at,
+            'published_at' => Carbon::now()
         ];
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image');
             $table->text('body');
+            $table->timestamp('published_at');
             $table->timestamps();
         });
     }
