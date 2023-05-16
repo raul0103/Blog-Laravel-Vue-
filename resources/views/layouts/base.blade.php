@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         @include('components.header')
-        <main class="mt-3">
+        <main class="mt-3 mb-3">
             @yield('content')
         </main>
     </div>

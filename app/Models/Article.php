@@ -47,4 +47,9 @@ class Article extends Model
     {
         return $query->with('stats', 'tags')->orderBy('created_at', 'desc')->paginate($elem_count);
     }
+
+    public function scopeFindBySlug($query, $slug)
+    {
+        return $query->with('comments', 'stats', 'tags')->where('slug', $slug)->firstOrFail();
+    }
 }

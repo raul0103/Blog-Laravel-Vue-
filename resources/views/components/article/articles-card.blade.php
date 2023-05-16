@@ -4,7 +4,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ $article->title }}</h5>
         <p class="card-text">{{ $article->simpleBody() }}</p>
-        <a href="#" class="link-primary">Читать</a>
+        <a href="{{ route('article.show', $article->slug) }}" class="link-primary">Читать</a>
         <div class="mt-3">
             <b>Теги:</b>
             @foreach ($article->tags as $tag_index => $tag)

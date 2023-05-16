@@ -12,4 +12,10 @@ class ArticleController extends Controller
         $articles = Article::allPaginate(8);
         return view('pages.article.articles', ['articles' => $articles]);
     }
+
+    public function show($slug)
+    {
+        $article = Article::findBySlug($slug);
+        return view('pages.article.article', ['article' => $article]);
+    }
 }
