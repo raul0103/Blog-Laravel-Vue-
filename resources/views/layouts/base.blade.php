@@ -12,7 +12,10 @@
 
 <body>
     <div class="container">
-        @yield('content')
+        @include('components.header')
+        <main class="mt-3">
+            @yield('content')
+        </main>
     </div>
     @yield('vue')
 </body>
