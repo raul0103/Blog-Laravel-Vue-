@@ -1,3 +1,4 @@
+import store from './store'
 import axios from 'axios';
 import {
     createApp
@@ -13,4 +14,5 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // initialize
 const app = createApp({});
 app.component('example-component', ExampleComponent);
+app.use(store)
 app.mount('#app');
