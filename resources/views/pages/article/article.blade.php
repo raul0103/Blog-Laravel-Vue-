@@ -6,12 +6,7 @@
 
         <div class="card-body">
             <p class="card-text">{{ $article->body }}</p>
-            <div class="mt-3">
-                <b>Теги:</b>
-                @foreach ($article->tags as $tag_index => $tag)
-                    <a class="btn btn-outline-secondary btn-sm">{{ $tag->title }}</a>
-                @endforeach
-            </div>
+            @include('components.article.article-tags')
         </div>
         <div class="card-footer">
             <div class="d-flex justify-content-between">

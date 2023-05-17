@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/articles/tag/{tag}', [ArticleController::class, 'showByTag'])->name('article.tag');

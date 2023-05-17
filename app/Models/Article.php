@@ -52,4 +52,9 @@ class Article extends Model
     {
         return $query->with('comments', 'stats', 'tags')->where('slug', $slug)->firstOrFail();
     }
+
+    public function scopeAllByTagPaginate($query, $elem_count)
+    {
+        return $query->with('stats', 'tags')->orderBy('created_at', 'desc')->paginate($elem_count);
+    }
 }
