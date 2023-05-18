@@ -12,8 +12,12 @@ export default createStore({
     actions: {
         getArticleData({
             commit
-        }) {
-            axios.get('api/article-json').then(response => {
+        }, payload) {
+            axios.get('/api/v1/article-json', {
+                params: {
+                    id: payload
+                }
+            }).then(response => {
                 commit('setArticle', response.data.data)
             })
         }

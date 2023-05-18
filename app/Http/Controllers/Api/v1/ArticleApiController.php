@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 
 class ArticleApiController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-        return new ArticleResource(Article::with('comments', 'tags', 'stats')->first());
+        return new ArticleResource(Article::with('comments', 'tags', 'stats')->find($request->id));
     }
 }

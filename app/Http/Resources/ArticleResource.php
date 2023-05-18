@@ -17,9 +17,12 @@ class ArticleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'body' => $this->body,
+            'image' => $this->image,
             'comments' => CommentResource::collection($this->comments),
             'tags' => TagResource::collection($this->tags),
             'statistics' => new StatResource($this->stats),
+            'created_at' => $this->createdForHumans()
         ];
     }
 }
