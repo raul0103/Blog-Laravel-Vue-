@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('article-json', [ArticleApiController::class, 'show']);
+Route::put('article-increment-views', [ArticleApiController::class, 'incrementViews']);
+Route::put('article-increment-likes', [ArticleApiController::class, 'incrementLikes']);

@@ -40,7 +40,8 @@ export default {
         },
     },
     mounted() {
-        this.$store.dispatch("getArticleData", this.article_id);
+        this.$store.commit("setArticleId", this.article_id);
+        this.$store.dispatch("getArticleData");
         // this.getArticleData();
     },
     // methods: mapActions(["getArticleData"]),

@@ -1,6 +1,10 @@
 <template>
     <div>
-        <span class="badge bg-primary">
+        <span
+            :class="[!like_it ? 'bg-success' : 'bg-primary', 'badge']"
+            role="button"
+            @click="like"
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -44,8 +48,18 @@ export default {
             default: {},
         },
     },
+    methods: {
+        like() {
+            this.$store.dispatch("putArticleLikes");
+        },
+    },
+    computed: {
+        like_it() {
+            return this.$store.getters.getLikeIt;
+        },
+    },
     mounted() {
-        console.log("article stats mounted.");
+        this.$store.dispatch("putArticleViews");
     },
 };
 </script>
