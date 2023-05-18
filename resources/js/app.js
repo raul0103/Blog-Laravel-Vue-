@@ -1,5 +1,5 @@
 import store from './store'
-import axios from 'axios';
+// import axios from 'axios';
 import {
     createApp
 } from 'vue';
@@ -8,8 +8,8 @@ import {
 import ExampleComponent from './components/ExampleComponent.vue';
 
 // axios 
-window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// window.axios = axios;
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // initialize
 const app = createApp({});

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
     createStore
 } from 'vuex'
@@ -5,12 +6,26 @@ import {
 export default createStore({
     state() {
         return {
-            count: 0
+            article: {}
+        }
+    },
+    actions: {
+        getArticleData({
+            commit
+        }) {
+            axios.get('api/article-json').then(response => {
+                commit('setArticle', response.data.data)
+            })
+        }
+    },
+    getters: {
+        getArticle(state) {
+            return state.article
         }
     },
     mutations: {
-        increment(state) {
-            state.count++
+        setArticle(state, payload) {
+            return state.article = payload
         }
     }
 })
